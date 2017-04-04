@@ -17,4 +17,4 @@ make -j4
 ## Generate release executable
 cd ../release
 cmake -DCMAKE_BUILD_TYPE=Release ../..
-make -j4
+make install -j4
