@@ -13,6 +13,7 @@ set(SOURCE_FILES ${SOURCE_FILES} src/dbusinterface.cpp)
 # Creates meta-object code from files containing Qt class with the Q_OBJECT declaration
 qt4_wrap_cpp(dbus_MOC_SRCS ${dbus_MOC_HDRS})
 add_library(asebaclient SHARED ${SOURCE_FILES} ${dbus_MOC_SRCS})
+target_link_libraries(asebaclient ${QT_QTCORE_LIBRARIES} ${QT_QTDBUS_LIBRARIES})
 
 install(TARGETS asebaclient EXPORT AsebaMedullaDBusConfig
 	ARCHIVE DESTINATION lib
