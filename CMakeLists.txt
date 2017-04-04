@@ -19,4 +19,4 @@ install(TARGETS aseba_medulla_dbus EXPORT AsebaMedullaDBusConfig
 	LIBRARY DESTINATION lib
 	RUNTIME DESTINATION bin)
 install(DIRECTORY include/ DESTINATION include)
-target_link_libraries(aseba_medulla_dbus ${QT_QTCORE_LIBRARIES} ${QT_QTDBUS_LIBRARIES})
+target_link_libraries(asebaclient ${QT_QTCORE_LIBRARIES} ${QT_QTDBUS_LIBRARIES})
