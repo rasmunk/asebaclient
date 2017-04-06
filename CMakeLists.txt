@@ -1,7 +1,7 @@
 # CMake file that builds the aseba medulla interface library
 cmake_minimum_required(VERSION 3.0.2)
 project(asebaclient VERSION 0.1.0)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -lpthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 include_directories (${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(Qt4 COMPONENTS QtDBus QtCore QtTest REQUIRED)
 ## Contains every qt core module include headers e.g QtDBus
