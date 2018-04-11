@@ -6,11 +6,11 @@
 #define DBUS_TEST_ASEBAINTERFACE_H
 
 #include <Qthread>
+#include <memory>
 #include <dashel/dashel.h>
 #include <aseba/common/msg/NodesManager.h>
-#include <memory>
-#include "support/AeslProgram.h"
-#include "support/Message.h"
+#include <asebaclient/support/AeslProgram.h>
+#include <asebaclient/support/Message.h>
 
 namespace ENU
 {

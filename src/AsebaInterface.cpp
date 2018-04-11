@@ -6,7 +6,6 @@
 #include <aseba/compiler/compiler.h>
 #include <aseba/common/utils/utils.h>
 #include <QDebug>
-#include "support/Message.h"
 
 using namespace ENU::Http;
 
