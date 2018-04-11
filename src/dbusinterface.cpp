@@ -25,7 +25,7 @@ namespace Aseba
 {
 	// Create DBus connection with the interface ch.epfl.mobots.AsebaNetwork
 	DBusInterface::DBusInterface() :
-		bus(QDBusConnection::systemBus()),
+		bus(QDBusConnection::sessionBus()),
 		callbacks({}),
 		dbusMainInterface("ch.epfl.mobots.Aseba", "/", "ch.epfl.mobots.AsebaNetwork",bus)
 	{
@@ -86,15 +86,15 @@ namespace Aseba
 	// Check if the connection was estalished
 	bool DBusInterface::checkConnection()
 	{
-		if (!QDBusConnection::systemBus().isConnected())
+		if (!QDBusConnection::sessionBus().isConnected())
 		{
-			fprintf(stderr, "Cannot connect to the D-Bus system bus.\n"
+			fprintf(stderr, "Cannot connect to the D-Bus session bus.\n"
 							"To start it, run:\n"
 							"\teval `dbus-launch --auto-syntax`\n");
 			qDebug() << "error";
 			return false;
 		}
-		qDebug() << "You are connected to the D-Bus system bus";
+		qDebug() << "You are connected to the D-Bus session bus";
 
 		QDBusMessage nodelist=dbusMainInterface.call("GetNodesList");
 
