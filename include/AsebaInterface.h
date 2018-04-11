@@ -9,8 +9,8 @@
 #include <memory>
 #include <dashel/dashel.h>
 #include <aseba/common/msg/NodesManager.h>
-#include <asebaclient/support/AeslProgram.h>
-#include <asebaclient/support/Message.h>
+#include "support/AeslProgram.h"
+#include "support/Message.h"
 
 namespace ENU
 {
@@ -22,7 +22,7 @@ namespace ENU
 	public:
 		AsebaInterface(const QString& ip, const QString& port);
 		~AsebaInterface() { this->stop(); }
-		void sink(std::unique_ptr<ENU::Http::AeslProgram> aeslProgram);
+		void sink(std::unique_ptr<ENU::AeslProgram> aeslProgram);
 
 		// NodesManager
 		void sendMessage(const Aseba::Message& message) override;
@@ -56,7 +56,7 @@ namespace ENU
 		bool running;
 
 	private:
-		std::unique_ptr<ENU::Http::AeslProgram> _aeslProgram;
+		std::unique_ptr<ENU::AeslProgram> _aeslProgram;
 		void setupNode(unsigned nodeId);
 	};
 }

@@ -7,8 +7,6 @@
 #include <aseba/common/utils/utils.h>
 #include <QDebug>
 
-using namespace ENU::Http;
-
 namespace ENU
 {
 	AsebaInterface::AsebaInterface(const QString& ip, const QString& port) :

@@ -36,8 +36,7 @@
 
 
 
-namespace ENU { namespace Http
-{
+namespace ENU {
 	/**
 	 * Class representing an AESL program with several code entries that can later be compiled and
 	 * executed on nodes matching a specified node name or id.
@@ -70,6 +69,6 @@ namespace ENU { namespace Http
 			NodeEntry nodeEntry;
 			Aseba::CommonDefinitions commonDefinitions;
 	};
-} }
+}
 
 #endif

@@ -11,7 +11,6 @@ include_directories(/usr/local/include)
 # add extra lib directories
 link_directories(/usr/local/lib)
 
-
 include(FindPackageHandleStandardArgs)
 find_package(dashel REQUIRED)
 find_package(LibXml2 REQUIRED)

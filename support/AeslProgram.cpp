@@ -23,7 +23,7 @@
 #include <aseba/common/utils/utils.h>
 #include "AeslProgram.h"
 
-using ENU::Http::AeslProgram;
+using ENU::AeslProgram;
 using std::cerr;
 using std::endl;
 
