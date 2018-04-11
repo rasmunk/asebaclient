@@ -1,19 +1,31 @@
 # CMake file that builds the aseba medulla interface library
 cmake_minimum_required(VERSION 3.0.2)
-project(asebaclient VERSION 0.1.0)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-include_directories (${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
-find_package(Qt4 COMPONENTS QtDBus QtCore QtTest REQUIRED)
-## Contains every qt core module include headers e.g QtDBus
-include_directories(${QT_INCLUDE_DIR})
+project(asebaclient VERSION 0.1.1)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD 14)
 
-set(dbus_MOC_HDRS include/dbusinterface.h)
-set(SOURCE_FILES ${SOURCE_FILES} src/dbusinterface.cpp)
-# https://cmake.org/cmake/help/v3.0/module/FindQt4.html
+# add extra include directories
+include_directories(/usr/local/include)
+
+# add extra lib directories
+link_directories(/usr/local/lib)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(Qt5_DIR /usr/local/Cellar/qt/5.10.1/lib/cmake/Qt5)
+find_package(Qt5 CONFIG REQUIRED DBus Core Network)
+
+set(dbus_MOC_HDRS
+		include/dbusinterface.h)
+
+set(SOURCE_FILES
+		src/dbusinterface.cpp)
+
 # Creates meta-object code from files containing Qt class with the Q_OBJECT declaration
-qt4_wrap_cpp(dbus_MOC_SRCS ${dbus_MOC_HDRS})
+qt5_wrap_cpp(dbus_MOC_SRCS ${dbus_MOC_HDRS})
+
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${dbus_MOC_SRCS})
-target_link_libraries(${PROJECT_NAME} ${QT_QTCORE_LIBRARIES} ${QT_QTDBUS_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Network Qt5::DBus)
+
 install(TARGETS ${PROJECT_NAME} EXPORT AsebaMedullaDBusConfig
 	ARCHIVE DESTINATION lib
 	LIBRARY DESTINATION lib

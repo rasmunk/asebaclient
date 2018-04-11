@@ -22,7 +22,7 @@
 #ifndef DBUSINTERFACE_H
 #define DBUSINTERFACE_H
 
-#include <QtDBus/QtDBus>
+#include <QtDbus>
 #include <functional>
 
 Q_DECLARE_METATYPE( QList<qint16> );
